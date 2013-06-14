@@ -1,0 +1,11 @@
+{
+    "fragments": [
+        {
+            "classifier": "var", 
+            "name": "urlpatterns"
+        }
+    ], 
+    "imports": [
+        "django.conf.urls"
+    ]
+}

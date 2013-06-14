@@ -102,9 +102,6 @@ def getMatchFragment(text1, text2):
                 
         result.append(found)
    
-    if not result:
-        return 0
-   
     return len(filter(bool, result)) / float(len(result))
 
 def getMatchCluster(cluster, text2):
