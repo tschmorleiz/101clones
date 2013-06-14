@@ -1,22 +1,160 @@
-from django.conf.urls import patterns, include, url
+class Borg(object):
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+    __state = {}
+    def __init__(self):
+        self.__dict__ = Borg.__state
+        
+class Company(Borg):
+    
+    def __init__(self, name, subunits):
+        Borg.__init__(self)
+        self.name = name
+        self.subunits = subunits
+      
+    def cut(self):
+        for s in self.subunits:
+            s.cut()
+            
+    def total(self):
+        return sum(map(lambda s: s.total(), self.subunits))
+        
+class Department(object):
+    
+    def __init__(self, name, manager, subunits):
+        self.name = name
+        self.manager = manager
+        self.subunits = subunits
 
-urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'companies101.views.home', name='home'),
-    # url(r'^companies101/', include('companies101.foo.urls')),
+    def cut(self):
+        self.manager.cut()
+        for s in self.subunits:
+            s.cut()
+       
+    def total(self):
+        return self.manager.total() + sum(map(lambda s: s.total(), self.subunits))
+        
+class Employee(object):
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+        
+    def cut(self):
+        self.salary /= 2
+        
+    def total(self):
+        return self.salary
+       
 
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'company.views.index'),
-    url(r'^company/department/(?P<department_name>[a-zA-Z0-9_\.]+)', 'company.views.department'),
-    url(r'^company/employee/(?P<employee_name>[a-zA-Z0-9_\.]+)', 'company.views.employee'),
-    url(r'^company/cut', 'company.views.cut'),
-    url(r'^company/total', 'company.views.total')
+if __name__ == '__main__':
+    company = Company(
+    "Meganalysis",
+    [
+        Department(
+            "Research",
+            Employee(
+                name = "Craig",
+                salary = 123456.0
+            ),
+            subunits = [
+                Employee(
+                    name = "Erik",
+                    salary = 12345.0
+                ),
+                Employee(
+                    name = "Ralf",
+                    salary = 1234.0
+                )
+            ]
+        ),
+        Department(
+            name = "Development",
+            manager = Employee(
+                name = "Ray",
+                salary = 234567.0
+            ),
+            subunits = [
+                Department(
+                    name = "Dev1",
+                    manager = Employee(
+                        name = "Klaus",
+                        salary = 23456.0
+                    ),
+                    subunits = [
+                        Department(
+                            name = "Dev1.1",
+                            manager = Employee(
+                                name = "Karl",
+                                salary = 2345.0
+                            ),
+                            subunits = [
+                                Employee(
+                                    name = "Joe",
+                                    salary = 2344.0
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )            
+    ]
 )
+    first_total = company.total()
+     
+    company2 = Company(
+        "Meganalysis",
+        [
+            Department(
+                "Research",
+                Employee(
+                    name = "Craig",
+                    salary = 123456.0
+                ),
+                subunits = [
+                    Employee(
+                        name = "Erik",
+                        salary = 12345.0
+                    ),
+                    Employee(
+                        name = "Ralf",
+                        salary = 1234.0
+                    )
+                ]
+            ),
+            Department(
+                name = "Development",
+                manager = Employee(
+                    name = "Ray",
+                    salary = 234567.0
+                ),
+                subunits = [
+                    Department(
+                        name = "Dev1",
+                        manager = Employee(
+                            name = "Klaus",
+                            salary = 23456.0
+                        ),
+                        subunits = [
+                            Department(
+                                name = "Dev1.1",
+                                manager = Employee(
+                                    name = "Karl",
+                                    salary = 2345.0
+                                ),
+                                subunits = [
+                                    Employee(
+                                        name = "Joe",
+                                        salary = 2344.0
+                                    )
+                                ]
+                            )
+                        ]
+                    )
+                ]
+            )            
+        ]
+    )
+    
+    company2.cut()
+    assert company.total() * 2.0 == first_total

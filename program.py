@@ -57,7 +57,7 @@ def getMatchFragment(text1, text2):
     f = open('input1.py', 'w')
     f.write(text1)
     f.close()
-    
+
     f = open('input2.py', 'w')
     f.write(text2)
     f.close()
@@ -67,49 +67,48 @@ def getMatchFragment(text1, text2):
 
     t1 = json.load(open('extract1.json'))
     t2 = json.load(open('extract2.json'))
-    
+
     for fragment in t1['fragments']:
         f = open('input.py', 'w')
         f.write(text1)
         f.close()
         os.system('python PyFragmentLocator/locator.py {}/{} < input.py > fragment.py'.format(fragment['classifier'], fragment['name']))
-    
+
         f = open('fragment.py', 'r')
         data = f.read()
         f.close()
-        
+
         fragment['fragment'] = data
-        
+
     for fragment in t2['fragments']:
         f = open('input.py', 'w')
         f.write(text2)
         f.close()
         os.system('python PyFragmentLocator/locator.py {}/{} < input.py > fragment.py'.format(fragment['classifier'], fragment['name']))
-    
+
         f = open('fragment.py', 'r')
         data = f.read()
         f.close()
-        
+
         fragment['fragment'] = data
-    
+
     result = []
-    
+
     for fragment in t1['fragments']:
         found = False
         for f2 in t2['fragments']:
             if fragment['classifier'] == f2['classifier'] and fragment['name'] == f2['name'] and fragment['fragment'] == f2['fragment']:
                 found = True
-                
+
         result.append(found)
-   
+
     if not result:
         return 0
-   
+
     return len(filter(bool, result)) / float(len(result))
 
 def getMatchCluster(cluster, text2):
     f = eval(f_name)
-
     return min(map(lambda member: f(csFlat[member], text2), cluster))
 
 i = 0
@@ -124,34 +123,37 @@ for c in data:
             if f == cluster:
                 continue
             mindiffratio = getMatchCluster(clusters[cluster]['files'] + [cluster], cs[c][f])
-            if mindiffratio >= 0.25:
+            if mindiffratio >= sys.argv[2]:
                 clusters[cluster]['files'].append(f)
-                #if mindiffratio < clusters[cluster].get('mindiffratio', 1):
-                #    clusters[cluster]['mindiffratio'] = mindiffratio
-
+                if mindiffratio < clusters[cluster].get('mindiffratio', 1):
+                    clusters[cluster]['mindiffratio'] = mindiffratio
 
 for c in clusters.keys():
     if len(clusters[c]['files']) == 1:
         del clusters[c]
 
-#for c in clusters.keys():
-#    origin = None
-#    for f in clusters[c]['files']:
-#        url = 'http://101companies.org/resources/contributions/{}'.format(f)
-#        github = json.loads(requests.get(url).text)['github']
-#        github = github.split('/')
-#        #github = github.replace('http://', 'https://')
-#        #github = github.replace('/tree/master', '')        
-#        #github = github.replace('github.com', 'api.github.com/repos')
-#        url = 'https://api.github.com/repos/{user}/{repo}/commits?path={path}'.format(user=github[3], repo=github[4], path='/'.join(github[7:]))
-#        info = json.loads(requests.get(url).text)
-#        info = map(lambda c: c['commit']['author'], info)
-#        first = sorted(info, key=lambda i: i['date'])[0]
-#        if not origin or origin['commit']['date'] > first['date']:
-#            origin = {
-#                'file': f,
-#                'commit': first
-#            }
-#    clusters[c]['origin'] = origin
+for c in clusters.keys():
+   origin = None
+   for f in clusters[c]['files']:
+       url = 'http://101companies.org/resources/contributions/{}'.format(f)
+       github = json.loads(requests.get(url).text)['github']
+       github = github.split('/')
+       #github = github.replace('http://', 'https://')
+       #github = github.replace('/tree/master', '')
+       #github = github.replace('github.com', 'api.github.com/repos')
+       url = 'https://api.github.com/repos/{user}/{repo}/commits?path={path}'.format(user=github[3], repo=github[4], path='/'.join(github[7:]))
+       info = json.loads(requests.get(url).text)
+       info = map(lambda c: c['commit']['author'], info)
+       first = sorted(info, key=lambda i: i['date'])[0]
+       if not origin or origin['commit']['date'] > first['date']:
+           origin = {
+               'file': f,
+               'commit': first
+           }
+   clusters[c]['origin'] = origin
+
+for c in clusters.keys():
+    for f in clusters[c]['files']:
+        clusters[c][f] = {'file': f, 'mindiffratio': getMatchCluster([clusters[c]['origin']['file']], csFlat[f])}
 
 print json.dumps(clusters)
