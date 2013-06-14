@@ -49,7 +49,7 @@ for c in data:
                 csFlat[f] = content
                 i += len(cs[c][f])
 
-def getMatchDiff(text1, text2):
+def getMatchDiff(text2, text1):
     return difflib.SequenceMatcher(None, text1, text2).ratio()
 
 def getMatchFragment(text1, text2):
@@ -109,7 +109,7 @@ def getMatchFragment(text1, text2):
 
 def getMatchCluster(cluster, text2):
     f = eval(f_name)
-    return min(map(lambda member: f(csFlat[member], text2), cluster))
+    return map(lambda member: f(csFlat[member], text2), cluster)
 
 i = 0
 clusters = {}
@@ -118,42 +118,57 @@ iterations = 0.0
 for c in data:
     i += 1
     for f in cs[c]:
-        clusters[f] = {'files': [f]}
+        print 'Checking', f,
+        clusters[f] = {'files': [{'name': f, 'diffratios': [1]}]}
         for cluster in clusters:
             if f == cluster:
                 continue
-            mindiffratio = getMatchCluster(clusters[cluster]['files'] + [cluster], cs[c][f])
-            if mindiffratio >= sys.argv[2]:
-                clusters[cluster]['files'].append(f)
+            diffratios = getMatchCluster(map(lambda fs: fs['name'], clusters[cluster]['files']), cs[c][f])
+            mindiffratio = min(diffratios)
+            if mindiffratio >= float(sys.argv[2]):
+                clusters[cluster]['files'].append({'name': f, 'diffratios': diffratios + [1]})
                 if mindiffratio < clusters[cluster].get('mindiffratio', 1):
                     clusters[cluster]['mindiffratio'] = mindiffratio
+        print 'Done.'
 
 for c in clusters.keys():
     if len(clusters[c]['files']) == 1:
         del clusters[c]
 
+# complete diffratios
+
+for c in clusters.keys():
+    for i1, o1 in enumerate(clusters[c]['files']):
+        for i2, o2 in enumerate(clusters[c]['files']):
+            if i2 > i1:
+                clusters[c]['files'][i1]['diffratios'].append(o2['diffratios'][i1])
+
 for c in clusters.keys():
    origin = None
-   for f in clusters[c]['files']:
-       url = 'http://101companies.org/resources/contributions/{}'.format(f)
+   for i, f in enumerate(clusters[c]['files']):
+       url = 'http://101companies.org/resources/contributions/{}'.format(f['name'])
        github = json.loads(requests.get(url).text)['github']
        github = github.split('/')
-       #github = github.replace('http://', 'https://')
-       #github = github.replace('/tree/master', '')
-       #github = github.replace('github.com', 'api.github.com/repos')
        url = 'https://api.github.com/repos/{user}/{repo}/commits?path={path}'.format(user=github[3], repo=github[4], path='/'.join(github[7:]))
        info = json.loads(requests.get(url).text)
        info = map(lambda c: c['commit']['author'], info)
        first = sorted(info, key=lambda i: i['date'])[0]
        if not origin or origin['commit']['date'] > first['date']:
            origin = {
-               'file': f,
+               'fileindex': i,
                'commit': first
            }
-   clusters[c]['origin'] = origin
+   clusters[c]['root'] = origin
 
 for c in clusters.keys():
-    for f in clusters[c]['files']:
-        clusters[c][f] = {'file': f, 'mindiffratio': getMatchCluster([clusters[c]['origin']['file']], csFlat[f])}
+    for i, f in enumerate(clusters[c]['files']):
+        clusters[c]['files'][i]['rootdiffratio'] = clusters[c]['files'][i]['diffratios'][clusters[c]['root']['fileindex']]
+        clusters[c]['files'][i]['isroot'] = i == clusters[c]['root']['fileindex']
 
-print json.dumps(clusters)
+clusterlist = []
+for c in clusters.keys():
+    clusterlist.append(clusters[c])
+clusters = clusterlist
+
+with open(sys.argv[3], 'w') as outfile:
+  json.dump(clusters, outfile)
