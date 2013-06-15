@@ -1,1 +1,33 @@
-[{"files": [{"rootdiffratio": 1, "diffratios": [1, 0.3333333333333333], "name": "py3k/CompanyTest.py", "isroot": true}, {"rootdiffratio": 0.3333333333333333, "diffratios": [0.3333333333333333, 1], "name": "pyFunctional/company.py", "isroot": false}], "root": {"commit": {"date": "2012-03-29T10:11:15Z", "name": "Sebastian Jackel", "email": "sjackel@uni-koblenz.de"}, "fileindex": 0}, "mindiffratio": 0.3333333333333333}]
+[
+    {
+        "files": [
+            {
+                "rootdiffratio": 1,
+                "diffratios": [
+                    1,
+                    0.3333333333333333
+                ],
+                "name": "py3k/CompanyTest.py",
+                "isroot": true
+            },
+            {
+                "rootdiffratio": 0.3333333333333333,
+                "diffratios": [
+                    0.3333333333333333,
+                    1
+                ],
+                "name": "pyFunctional/company.py",
+                "isroot": false
+            }
+        ],
+        "root": {
+            "commit": {
+                "date": "2012-03-29T10:11:15Z",
+                "name": "Sebastian Jackel",
+                "email": "sjackel@uni-koblenz.de"
+            },
+            "fileindex": 0
+        },
+        "mindiffratio": 0.3333333333333333
+    }
+]

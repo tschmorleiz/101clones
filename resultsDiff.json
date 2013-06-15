@@ -1,1 +1,297 @@
-[{"files": [{"rootdiffratio": 0.39226914817465997, "diffratios": [1, 0.39226914817465997, 0.7478497057492078, 0.9165135741988161, 0.4487269658179772], "name": "pythonSyb/101companies.py", "isroot": false}, {"rootdiffratio": 1, "diffratios": [0.39226914817465997, 1, 0.4510414958176152, 0.41927637579811494, 0.30086481565771506], "name": "pythonDjango/company/models.py", "isroot": true}, {"rootdiffratio": 0.4510414958176152, "diffratios": [0.7478497057492078, 0.4510414958176152, 1, 0.7728745948641237, 0.4642340459733162], "name": "pyFunctional/company.py", "isroot": false}, {"rootdiffratio": 0.41927637579811494, "diffratios": [0.9165135741988161, 0.41927637579811494, 0.7728745948641237, 1, 0.4885108922709639], "name": "pyVisitors/company.py", "isroot": false}, {"rootdiffratio": 0.30086481565771506, "diffratios": [0.4487269658179772, 0.30086481565771506, 0.4642340459733162, 0.4885108922709639, 1], "name": "pyBorg/program.py", "isroot": false}], "root": {"commit": {"date": "2013-02-18T17:16:08Z", "name": "ar7u9o", "email": "kevin.k1252@gmail.com"}, "fileindex": 1}, "mindiffratio": 0.30086481565771506}, {"files": [{"rootdiffratio": 1, "diffratios": [1, 0.7728745948641237, 0.4642340459733162], "name": "pyFunctional/company.py", "isroot": true}, {"rootdiffratio": 0.7728745948641237, "diffratios": [0.7728745948641237, 1, 0.4885108922709639], "name": "pyVisitors/company.py", "isroot": false}, {"rootdiffratio": 0.4642340459733162, "diffratios": [0.4642340459733162, 0.4885108922709639, 1], "name": "pyBorg/program.py", "isroot": false}], "root": {"commit": {"date": "2013-04-16T17:59:58Z", "name": "Kevin Klein", "email": "kevin.k1252@gmail.com"}, "fileindex": 0}, "mindiffratio": 0.4642340459733162}, {"files": [{"rootdiffratio": 1, "diffratios": [1, 0.4510414958176152, 0.41927637579811494, 0.30086481565771506], "name": "pythonDjango/company/models.py", "isroot": true}, {"rootdiffratio": 0.4510414958176152, "diffratios": [0.4510414958176152, 1, 0.7728745948641237, 0.4642340459733162], "name": "pyFunctional/company.py", "isroot": false}, {"rootdiffratio": 0.41927637579811494, "diffratios": [0.41927637579811494, 0.7728745948641237, 1, 0.4885108922709639], "name": "pyVisitors/company.py", "isroot": false}, {"rootdiffratio": 0.30086481565771506, "diffratios": [0.30086481565771506, 0.4642340459733162, 0.4885108922709639, 1], "name": "pyBorg/program.py", "isroot": false}], "root": {"commit": {"date": "2013-02-18T17:16:08Z", "name": "ar7u9o", "email": "kevin.k1252@gmail.com"}, "fileindex": 0}, "mindiffratio": 0.30086481565771506}, {"files": [{"rootdiffratio": 1, "diffratios": [1, 0.4961082910321489, 0.35604163921465276, 0.5774591796097173, 0.5317099763765218, 0.376766498120057], "name": "py3k/CompanyTest.py", "isroot": true}, {"rootdiffratio": 0.4961082910321489, "diffratios": [0.4961082910321489, 1, 0.39226914817465997, 0.7478497057492078, 0.9165135741988161, 0.4487269658179772], "name": "pythonSyb/101companies.py", "isroot": false}, {"rootdiffratio": 0.35604163921465276, "diffratios": [0.35604163921465276, 0.39226914817465997, 1, 0.4510414958176152, 0.41927637579811494, 0.30086481565771506], "name": "pythonDjango/company/models.py", "isroot": false}, {"rootdiffratio": 0.5774591796097173, "diffratios": [0.5774591796097173, 0.7478497057492078, 0.4510414958176152, 1, 0.7728745948641237, 0.4642340459733162], "name": "pyFunctional/company.py", "isroot": false}, {"rootdiffratio": 0.5317099763765218, "diffratios": [0.5317099763765218, 0.9165135741988161, 0.41927637579811494, 0.7728745948641237, 1, 0.4885108922709639], "name": "pyVisitors/company.py", "isroot": false}, {"rootdiffratio": 0.376766498120057, "diffratios": [0.376766498120057, 0.4487269658179772, 0.30086481565771506, 0.4642340459733162, 0.4885108922709639, 1], "name": "pyBorg/program.py", "isroot": false}], "root": {"commit": {"date": "2012-03-29T10:11:15Z", "name": "Sebastian Jackel", "email": "sjackel@uni-koblenz.de"}, "fileindex": 0}, "mindiffratio": 0.30086481565771506}, {"files": [{"rootdiffratio": 1, "diffratios": [1, 0.4885108922709639], "name": "pyVisitors/company.py", "isroot": true}, {"rootdiffratio": 0.4885108922709639, "diffratios": [0.4885108922709639, 1], "name": "pyBorg/program.py", "isroot": false}], "root": {"commit": {"date": "2013-04-23T00:20:30Z", "name": "Kevin Klein", "email": "kevin.k1252@gmail.com"}, "fileindex": 0}, "mindiffratio": 0.4885108922709639}]
+[
+    {
+        "files": [
+            {
+                "rootdiffratio": 0.39226914817465997,
+                "diffratios": [
+                    1,
+                    0.39226914817465997,
+                    0.7478497057492078,
+                    0.9165135741988161,
+                    0.4487269658179772
+                ],
+                "name": "pythonSyb/101companies.py",
+                "isroot": false
+            },
+            {
+                "rootdiffratio": 1,
+                "diffratios": [
+                    0.39226914817465997,
+                    1,
+                    0.4510414958176152,
+                    0.41927637579811494,
+                    0.30086481565771506
+                ],
+                "name": "pythonDjango/company/models.py",
+                "isroot": true
+            },
+            {
+                "rootdiffratio": 0.4510414958176152,
+                "diffratios": [
+                    0.7478497057492078,
+                    0.4510414958176152,
+                    1,
+                    0.7728745948641237,
+                    0.4642340459733162
+                ],
+                "name": "pyFunctional/company.py",
+                "isroot": false
+            },
+            {
+                "rootdiffratio": 0.41927637579811494,
+                "diffratios": [
+                    0.9165135741988161,
+                    0.41927637579811494,
+                    0.7728745948641237,
+                    1,
+                    0.4885108922709639
+                ],
+                "name": "pyVisitors/company.py",
+                "isroot": false
+            },
+            {
+                "rootdiffratio": 0.30086481565771506,
+                "diffratios": [
+                    0.4487269658179772,
+                    0.30086481565771506,
+                    0.4642340459733162,
+                    0.4885108922709639,
+                    1
+                ],
+                "name": "pyBorg/program.py",
+                "isroot": false
+            }
+        ],
+        "root": {
+            "commit": {
+                "date": "2013-02-18T17:16:08Z",
+                "name": "ar7u9o",
+                "email": "kevin.k1252@gmail.com"
+            },
+            "fileindex": 1
+        },
+        "mindiffratio": 0.30086481565771506
+    },
+    {
+        "files": [
+            {
+                "rootdiffratio": 1,
+                "diffratios": [
+                    1,
+                    0.7728745948641237,
+                    0.4642340459733162
+                ],
+                "name": "pyFunctional/company.py",
+                "isroot": true
+            },
+            {
+                "rootdiffratio": 0.7728745948641237,
+                "diffratios": [
+                    0.7728745948641237,
+                    1,
+                    0.4885108922709639
+                ],
+                "name": "pyVisitors/company.py",
+                "isroot": false
+            },
+            {
+                "rootdiffratio": 0.4642340459733162,
+                "diffratios": [
+                    0.4642340459733162,
+                    0.4885108922709639,
+                    1
+                ],
+                "name": "pyBorg/program.py",
+                "isroot": false
+            }
+        ],
+        "root": {
+            "commit": {
+                "date": "2013-04-16T17:59:58Z",
+                "name": "Kevin Klein",
+                "email": "kevin.k1252@gmail.com"
+            },
+            "fileindex": 0
+        },
+        "mindiffratio": 0.4642340459733162
+    },
+    {
+        "files": [
+            {
+                "rootdiffratio": 1,
+                "diffratios": [
+                    1,
+                    0.4510414958176152,
+                    0.41927637579811494,
+                    0.30086481565771506
+                ],
+                "name": "pythonDjango/company/models.py",
+                "isroot": true
+            },
+            {
+                "rootdiffratio": 0.4510414958176152,
+                "diffratios": [
+                    0.4510414958176152,
+                    1,
+                    0.7728745948641237,
+                    0.4642340459733162
+                ],
+                "name": "pyFunctional/company.py",
+                "isroot": false
+            },
+            {
+                "rootdiffratio": 0.41927637579811494,
+                "diffratios": [
+                    0.41927637579811494,
+                    0.7728745948641237,
+                    1,
+                    0.4885108922709639
+                ],
+                "name": "pyVisitors/company.py",
+                "isroot": false
+            },
+            {
+                "rootdiffratio": 0.30086481565771506,
+                "diffratios": [
+                    0.30086481565771506,
+                    0.4642340459733162,
+                    0.4885108922709639,
+                    1
+                ],
+                "name": "pyBorg/program.py",
+                "isroot": false
+            }
+        ],
+        "root": {
+            "commit": {
+                "date": "2013-02-18T17:16:08Z",
+                "name": "ar7u9o",
+                "email": "kevin.k1252@gmail.com"
+            },
+            "fileindex": 0
+        },
+        "mindiffratio": 0.30086481565771506
+    },
+    {
+        "files": [
+            {
+                "rootdiffratio": 1,
+                "diffratios": [
+                    1,
+                    0.4961082910321489,
+                    0.35604163921465276,
+                    0.5774591796097173,
+                    0.5317099763765218,
+                    0.376766498120057
+                ],
+                "name": "py3k/CompanyTest.py",
+                "isroot": true
+            },
+            {
+                "rootdiffratio": 0.4961082910321489,
+                "diffratios": [
+                    0.4961082910321489,
+                    1,
+                    0.39226914817465997,
+                    0.7478497057492078,
+                    0.9165135741988161,
+                    0.4487269658179772
+                ],
+                "name": "pythonSyb/101companies.py",
+                "isroot": false
+            },
+            {
+                "rootdiffratio": 0.35604163921465276,
+                "diffratios": [
+                    0.35604163921465276,
+                    0.39226914817465997,
+                    1,
+                    0.4510414958176152,
+                    0.41927637579811494,
+                    0.30086481565771506
+                ],
+                "name": "pythonDjango/company/models.py",
+                "isroot": false
+            },
+            {
+                "rootdiffratio": 0.5774591796097173,
+                "diffratios": [
+                    0.5774591796097173,
+                    0.7478497057492078,
+                    0.4510414958176152,
+                    1,
+                    0.7728745948641237,
+                    0.4642340459733162
+                ],
+                "name": "pyFunctional/company.py",
+                "isroot": false
+            },
+            {
+                "rootdiffratio": 0.5317099763765218,
+                "diffratios": [
+                    0.5317099763765218,
+                    0.9165135741988161,
+                    0.41927637579811494,
+                    0.7728745948641237,
+                    1,
+                    0.4885108922709639
+                ],
+                "name": "pyVisitors/company.py",
+                "isroot": false
+            },
+            {
+                "rootdiffratio": 0.376766498120057,
+                "diffratios": [
+                    0.376766498120057,
+                    0.4487269658179772,
+                    0.30086481565771506,
+                    0.4642340459733162,
+                    0.4885108922709639,
+                    1
+                ],
+                "name": "pyBorg/program.py",
+                "isroot": false
+            }
+        ],
+        "root": {
+            "commit": {
+                "date": "2012-03-29T10:11:15Z",
+                "name": "Sebastian Jackel",
+                "email": "sjackel@uni-koblenz.de"
+            },
+            "fileindex": 0
+        },
+        "mindiffratio": 0.30086481565771506
+    },
+    {
+        "files": [
+            {
+                "rootdiffratio": 1,
+                "diffratios": [
+                    1,
+                    0.4885108922709639
+                ],
+                "name": "pyVisitors/company.py",
+                "isroot": true
+            },
+            {
+                "rootdiffratio": 0.4885108922709639,
+                "diffratios": [
+                    0.4885108922709639,
+                    1
+                ],
+                "name": "pyBorg/program.py",
+                "isroot": false
+            }
+        ],
+        "root": {
+            "commit": {
+                "date": "2013-04-23T00:20:30Z",
+                "name": "Kevin Klein",
+                "email": "kevin.k1252@gmail.com"
+            },
+            "fileindex": 0
+        },
+        "mindiffratio": 0.4885108922709639
+    }
+]

@@ -171,4 +171,4 @@ for c in clusters.keys():
 clusters = clusterlist
 
 with open(sys.argv[3], 'w') as outfile:
-  json.dump(clusters, outfile)
+  json.dump(clusters, outfile, indent=4, separators=(',', ': '))
