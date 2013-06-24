@@ -121,6 +121,68 @@
                 "rootdiffratio": 1,
                 "diffratios": [
                     1,
+                    0.19795221843003413
+                ],
+                "name": "pythonDjango/db.py",
+                "isroot": true
+            },
+            {
+                "rootdiffratio": 0.19795221843003413,
+                "diffratios": [
+                    0.19795221843003413,
+                    1
+                ],
+                "name": "pythonDjango/manage.py",
+                "isroot": false
+            }
+        ],
+        "root": {
+            "commit": {
+                "date": "2013-02-18T17:16:08Z",
+                "name": "ar7u9o",
+                "email": "kevin.k1252@gmail.com"
+            },
+            "fileindex": 0
+        },
+        "mindiffratio": 0.19795221843003413
+    },
+    {
+        "files": [
+            {
+                "rootdiffratio": 1,
+                "diffratios": [
+                    1,
+                    0.22478386167146974
+                ],
+                "name": "pyjson/cut.py",
+                "isroot": true
+            },
+            {
+                "rootdiffratio": 0.22478386167146974,
+                "diffratios": [
+                    0.22478386167146974,
+                    1
+                ],
+                "name": "pyjson/total.py",
+                "isroot": false
+            }
+        ],
+        "root": {
+            "commit": {
+                "date": "2012-09-11T14:26:08Z",
+                "name": "Ralf Laemmel",
+                "email": "rlaemmel@gmail.com"
+            },
+            "fileindex": 0
+        },
+        "mindiffratio": 0.22478386167146974
+    },
+    {
+        "files": [
+            {
+                "rootdiffratio": 1,
+                "diffratios": [
+                    1,
                     0.4510414958176152,
                     0.41927637579811494,
                     0.30086481565771506

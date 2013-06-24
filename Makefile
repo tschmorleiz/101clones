@@ -1,6 +1,6 @@
 run:
-	@python program.py fragment 0.1 resultsFragment.json
-	@python program.py diff 0.25 resultsDiff.json
+	@python program.py fragment 0.2 resultsFragment.json
+	@python program.py diff 0.15 resultsDiff.json
 	@make clean
 
 clean:
